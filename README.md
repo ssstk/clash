@@ -64,7 +64,7 @@ If you have Docker installed, you can run clash directly using `docker-compose`.
 
 The default configuration directory is `$HOME/.config/clash`
 
-The name of the configuration file is `config.yml`
+The name of the configuration file is `config.yaml`
 
 If you want to use another directory, you can use `-d` to control the configuration directory
 
@@ -107,7 +107,12 @@ external-controller: 127.0.0.1:9090
 
 # experimental feature
 experimental:
-  ignore-resolve-fail: true # ignore dns reslove fail, default value is true
+  ignore-resolve-fail: true # ignore dns resolve fail, default value is true
+
+# authentication of local SOCKS5/HTTP(S) server
+# authentication:
+#  - "user1:pass1"
+#  - "user2:pass2"
 
 # dns:
   # enable: true # set true to enable dns (default is false)
@@ -118,6 +123,7 @@ experimental:
   # nameserver:
   #   - 114.114.114.114
   #   - tls://dns.rubyfish.cn:853 # dns over tls
+  #   - https://1.1.1.1/dns-query # dns over https
   # fallback: # concurrent request with nameserver, fallback used when GEOIP country isn't CN
   #   - tcp://1.1.1.1
 
